@@ -2,7 +2,9 @@
   "name": "auto-ignore",
   "version": "1.0.0",
   "description": "generate ignore file according to the structure of project",
-  "main": "index.js",
+  "bin": {
+      "ignore": "bin/ignore.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +16,7 @@
     "git",
     "ignore"
   ],
-  "author": "adamwu1992 <adamwu1992@163.com>",
+  "author": "Adam Wu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Adamwu1992/auto-ignore/issues"
