@@ -7,5 +7,5 @@ program
     .parse(process.argv);
 
 console.log('====================================');
-console.log('ignore remove');
+console.log('ignore remove', program.args);
 console.log('====================================');

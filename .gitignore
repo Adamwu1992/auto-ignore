@@ -1,1 +1,4 @@
+bin/
 node_modules/
+libs
+README.md

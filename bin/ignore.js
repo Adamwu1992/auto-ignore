@@ -13,6 +13,16 @@ program
     ;
 
 program
+    .command('gen', 'generate the ignore file with a sign')
+    .alias('g')
+    ;
+
+program
+    .command('add', 'add ignore folder')
+    .alias('a')
+    ;
+
+program
     .command('remove', 'remove the git ignore file')
     .alias('r')
     ;

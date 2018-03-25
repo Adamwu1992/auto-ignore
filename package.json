@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "generate ignore file according to the structure of project",
   "bin": {
-      "ignore": "bin/ignore.js"
+    "ignore": "bin/ignore.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Adamwu1992/auto-ignore#readme",
   "dependencies": {
     "commander": "^2.15.1",
+    "glob": "^7.1.2",
     "inquirer": "^5.1.0"
   }
 }
