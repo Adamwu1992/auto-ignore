@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-class FileGenerotor {
+/**
+ * 追加文件内容
+ * 文件不存在则新建
+ */
+class FileAppend {
 
     constructor(fileName, text) {
         this.fileName = fileName;
@@ -15,13 +19,6 @@ class FileGenerotor {
         } else {
             this.text += (os.EOL + line);
         }
-    }
-
-    preview() {
-        console.log('The file is looked like this:')
-        console.log('====================================');
-        console.log(this.text);
-        console.log('====================================');
     }
 
     genreate() {
@@ -49,7 +46,7 @@ class FileGenerotor {
                             reject();
                         }
                         this.text = '';
-                        resolve();
+                        fs.close(fd, () => resolve());
                     })
                 })
             })
@@ -57,4 +54,4 @@ class FileGenerotor {
     }
 }
 
-module.exports = FileGenerotor;
+module.exports = FileAppend;

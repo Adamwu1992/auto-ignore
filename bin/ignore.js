@@ -12,6 +12,8 @@ program
     .alias('i')
     ;
 
+program.command('desc', 'add a describe file').alias('d');
+
 program
     .command('gen', 'generate the ignore file with a sign')
     .alias('g')

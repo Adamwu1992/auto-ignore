@@ -1,4 +1,1 @@
-bin/
-node_modules/
-libs
-README.md
+/node_modules
