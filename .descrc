@@ -1,1 +1,25 @@
-{"name":"刘德华","gender":"Male","age":"56"}
+{
+    "name": "auto-ignore",
+    "describe": "A project named auto-ignore",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node./dev.js",
+        "build": "node ./build.js",
+        "release": "node ./release.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Adamwu1992/auto-ignore.git"
+    },
+    "author": "adam<adamwu1992@163.com>",
+    "bugs": {
+        "url": "https://github.com/Adamwu1992/auto-ignore/issue"
+    },
+    "homepage": "https://github.com/Adamwu1992/auto-ignore#readme",
+    "keywords": [
+        "fast",
+        "stable",
+        "six"
+    ]
+}

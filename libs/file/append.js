@@ -9,7 +9,12 @@ const os = require('os');
 class FileAppend {
 
     constructor(fileName, text) {
-        this.fileName = fileName;
+        // 判断是否是绝对路径
+        if (fileName.match(/^\//)) {
+            this.fileName = fileName;
+        } else {
+            this.fileName = path.resolve(process.cwd(), path.join('.', fileName));
+        }
         this.text = text || '';
     }
 
@@ -22,7 +27,6 @@ class FileAppend {
     }
 
     genreate() {
-        const fileName = path.resolve(process.cwd(), path.join('.', this.fileName));
         // 判断文件是否为空
         const isFileEmpty = fd => {
             return new Promise((resolve, reject) => {

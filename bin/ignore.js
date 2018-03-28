@@ -5,29 +5,10 @@ const program = require('commander');
 const version = require('../package.json').version;
 program
     .version(version)
-    .usage('<command> [options]');
-
-program
-    .command('init', 'generate a git ignore file')
-    .alias('i')
-    ;
-
-program.command('desc', 'add a describe file').alias('d');
-
-program
-    .command('gen', 'generate the ignore file with a sign')
-    .alias('g')
-    ;
-
-program
+    .usage('<command> [options]')
+    .command('desc', 'generate a describe file')
     .command('add', 'add ignore folder')
-    .alias('a')
-    ;
-
-program
-    .command('remove', 'remove the git ignore file')
-    .alias('r')
-    ;
-
+    .command('gen', 'generate the ignore file with a sign')
+    .command('test', '666');
 
 program.parse(process.argv);

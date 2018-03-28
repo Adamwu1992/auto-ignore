@@ -11,7 +11,6 @@ program
     .usage('[options]')
     .parse(process.argv);
 
-
 getIgnores().then(files => {
     inquirer.prompt([
         {

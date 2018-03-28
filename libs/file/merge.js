@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 /**
  * 向文件中添加json内容
@@ -6,7 +7,12 @@ const fs = require('fs');
  */
 class FileMerge {
     constructor(fileName, json) {
-        this.fileName = fileName;
+        // 判断是否是绝对路径
+        if (fileName.match(/^\//)) {
+            this.fileName = fileName;
+        } else {
+            this.fileName = path.resolve(process.cwd(), path.join('.', fileName));
+        }
         this.json = json;
     }
 
@@ -44,12 +50,13 @@ class FileMerge {
                     return;
                 }
                 this.preview(fd).then(json => {
-                    console.log(JSON.stringify(json));
-                    fs.writeFile(fd, JSON.stringify(json), err => {
+                    const file = JSON.stringify(json, null, '    ');
+                    console.log(file);
+                    fs.writeFile(fd, file, err => {
                         if (err) {
                             reject(err);
                         }
-                        resolve(err);
+                        resolve();
                     });
                 });
             });
