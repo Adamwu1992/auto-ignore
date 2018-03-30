@@ -1,11 +1,11 @@
 #! /use/bin/env node
 
-const program = require('commander');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const getIgnores = require('../libs/traverse');
-const FileAppend = require('../libs/file/append');
-const { log } = require('../libs/utils/message');
+import program from 'commander';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import getIgnores from '../libs/traverse';
+import FileAppend from '../libs/file/append';
+import { log } from '../libs/utils/message';
 
 program
     .usage('[options]')

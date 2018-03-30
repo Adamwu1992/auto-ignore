@@ -1,6 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _os = require('os');
+
+var _os2 = _interopRequireDefault(_os);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * 追加文件内容
@@ -13,7 +29,7 @@ class FileAppend {
         if (fileName.match(/^\//)) {
             this.fileName = fileName;
         } else {
-            this.fileName = path.resolve(process.cwd(), path.join('.', fileName));
+            this.fileName = _path2.default.resolve(process.cwd(), _path2.default.join('.', fileName));
         }
         this.text = text || '';
     }
@@ -22,7 +38,7 @@ class FileAppend {
         if (!this.text) {
             this.text = line;
         } else {
-            this.text += (os.EOL + line);
+            this.text += _os2.default.EOL + line;
         }
     }
 
@@ -31,7 +47,7 @@ class FileAppend {
         const isFileEmpty = fd => {
             return new Promise((resolve, reject) => {
                 const buffer = new Buffer(128);
-                fs.read(fd, buffer, 0, 30, null, (err) => {
+                _fs2.default.read(fd, buffer, 0, 30, null, err => {
                     if (err) {
                         reject();
                     }
@@ -40,22 +56,22 @@ class FileAppend {
             });
         };
         return new Promise((resolve, reject) => {
-            fs.open(this.fileName, 'a+', (err, fd) => {
+            _fs2.default.open(this.fileName, 'a+', (err, fd) => {
                 isFileEmpty(fd).then(empty => {
                     if (!empty) {
-                        this.text = os.EOL + this.text;
+                        this.text = _os2.default.EOL + this.text;
                     }
-                    fs.write(fd, this.text, (err) => {
+                    _fs2.default.write(fd, this.text, err => {
                         if (err) {
                             reject();
                         }
                         this.text = '';
-                        fs.close(fd, () => resolve());
-                    })
-                })
-            })
-        })
+                        _fs2.default.close(fd, () => resolve());
+                    });
+                });
+            });
+        });
     }
 }
 
-module.exports = FileAppend;
+exports.default = FileAppend;

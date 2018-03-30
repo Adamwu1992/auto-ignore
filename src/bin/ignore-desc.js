@@ -1,8 +1,10 @@
-const program = require('commander');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const FileMerge = require('../libs/file/merge');
-const { log, error } = require('../libs/utils/message');
+#! /usr/bin/env node
+
+import program from 'commander';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import FileMerge from '../libs/file/merge';
+import { log, error } from '../libs/utils/message';
 
 program
     .usage('[options]')
@@ -59,8 +61,8 @@ function getDirName() {
  * 获取项目版本号
  */
 function getVersion() {
-    const package = require('../package.json');
-    return package ? package.version : 'v1.0.0';
+    const pkg = require('../package.json');
+    return pkg ? pkg.version : 'v1.0.0';
 }
 
 

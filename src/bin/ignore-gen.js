@@ -1,7 +1,7 @@
-#! /use/bin/env node
+#! /usr/bin/env node
 
-const program = require('commander');
-const FileGenerotor = require('../libs/file');
+import program from 'commander';
+import FileGenerotor from '../libs/file';
 
 program
     .usage('[options]')

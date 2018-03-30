@@ -1,12 +1,13 @@
 {
   "name": "auto-ignore",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "generate ignore file according to the structure of project",
   "bin": {
     "ignore": "bin/ignore.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,14 @@
     "commander": "^2.15.1",
     "glob": "^7.1.2",
     "inquirer": "^5.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }

@@ -1,5 +1,18 @@
-const fs = require('fs');
-const path = require('path');
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * 向文件中添加json内容
@@ -11,7 +24,7 @@ class FileMerge {
         if (fileName.match(/^\//)) {
             this.fileName = fileName;
         } else {
-            this.fileName = path.resolve(process.cwd(), path.join('.', fileName));
+            this.fileName = _path2.default.resolve(process.cwd(), _path2.default.join('.', fileName));
         }
         this.json = json;
     }
@@ -22,7 +35,7 @@ class FileMerge {
      */
     read(fd) {
         return new Promise((resolve, reject) => {
-            fs.readFile(fd || this.fileName, (err, data) => {
+            _fs2.default.readFile(fd || this.fileName, (err, data) => {
                 if (err) reject(err);
                 resolve(data);
             });
@@ -35,16 +48,13 @@ class FileMerge {
      */
     preview(fd) {
         return new Promise((resolve, reject) => {
-            this.read(fd)
-                .then(data => data.length ? JSON.parse(data) : {})
-                .then(json => resolve(Object.assign(json, this.json)))
-                .catch(err => reject(err));
+            this.read(fd).then(data => data.length ? JSON.parse(data) : {}).then(json => resolve(Object.assign(json, this.json))).catch(err => reject(err));
         });
     }
 
     merge() {
         return new Promise((resolve, reject) => {
-            fs.open(this.fileName, 'a+', (err, fd) => {
+            _fs2.default.open(this.fileName, 'a+', (err, fd) => {
                 if (err) {
                     reject(err);
                     return;
@@ -52,7 +62,7 @@ class FileMerge {
                 this.preview(fd).then(json => {
                     const file = JSON.stringify(json, null, '    ');
                     console.log(file);
-                    fs.writeFile(fd, file, err => {
+                    _fs2.default.writeFile(fd, file, err => {
                         if (err) {
                             reject(err);
                         }
@@ -64,4 +74,4 @@ class FileMerge {
     }
 }
 
-module.exports = FileMerge;
+exports.default = FileMerge;

@@ -1,14 +1,17 @@
-const exec = require('child_process').exec;
-const os = require('os');
+'use strict';
 
-module.exports = function() {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
     return new Promise((resolve, reject) => {
-        exec('git config -l', function(err, stdout, stderr) {
+        (0, _child_process.exec)('git config -l', function (err, stdout, stderr) {
             if (err) {
                 reject();
                 return;
             }
-            const lines = stdout.split(os.EOL);
+            const lines = stdout.split(_os2.default.EOL);
             let repo;
             let username;
             let useremail;
@@ -30,6 +33,14 @@ module.exports = function() {
                 }
             });
             resolve({ repo, username, useremail });
-        })
-    })
-}
+        });
+    });
+};
+
+var _os = require('os');
+
+var _os2 = _interopRequireDefault(_os);
+
+var _child_process = require('child_process');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
