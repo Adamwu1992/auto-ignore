@@ -6,7 +6,7 @@
     "ignore": "bin/ignore.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "myignore -t",
     "build": "babel src --out-dir dist"
   },
   "repository": {
@@ -30,14 +30,14 @@
     "inquirer": "^5.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-es2015-spread": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "my-ignore": "0.0.2"
   }
 }
