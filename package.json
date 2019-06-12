@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Adamwu1992/auto-ignore#readme",
   "dependencies": {
+    "braces": "^2.3.1",
     "chalk": "^2.3.2",
     "commander": "^2.15.1",
     "glob": "^7.1.2",
